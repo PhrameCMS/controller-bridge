@@ -33,6 +33,14 @@
     {
       "type": "vcs",
       "url": "https://github.com/PhrameCMS/http-foundation-bridge"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/twig-bridge"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/doctrine-dbal-bridge"
     }
   ],
   "autoload": {
