@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f90c9a3c72d5ff540fab1057e9cc0b2",
+    "content-hash": "167f604a84c0bbb1d8019302b26711ba",
     "packages": [
         {
             "name": "phramecms/core",

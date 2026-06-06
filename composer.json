@@ -1,6 +1,6 @@
 {
   "name": "phramecms/controller-bridge",
-  "description": "Controller resolver bridge for PhrameCMS Core",
+  "description": "Agnostic controller resolver bridge for PhrameCMS Core",
   "version": "dev-main",
   "type": "library",
   "license": "GPL-3.0-only",
@@ -37,12 +37,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "PhrameCMS\\SymfonyControllerBridge\\": "src/"
+      "PhrameCMS\\ControllerBridge\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PhrameCMS\\SymfonyControllerBridge\\Tests\\": "tests/"
+      "PhrameCMS\\ControllerBridge\\Tests\\": "tests/"
     }
   },
   "scripts": {

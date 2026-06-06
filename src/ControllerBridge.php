@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhrameCMS\SymfonyControllerBridge;
+namespace PhrameCMS\ControllerBridge;
 
 use Closure;
 use PhrameCMS\Core\Contracts\ContainerBuilderInterface;
@@ -16,7 +16,7 @@ use ReflectionParameter;
 use RuntimeException;
 use Throwable;
 
-final class SymfonyControllerBridge implements ControllerResolverInterface
+final class ControllerBridge implements ControllerResolverInterface
 {
     private const SYMFONY_REQUEST_CLASS = 'Symfony\\Component\\HttpFoundation\\Request';
     private const SYMFONY_CONTROLLER_RESOLVER_CLASS = 'Symfony\\Component\\HttpKernel\\Controller\\ControllerResolver';

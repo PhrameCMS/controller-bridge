@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace PhrameCMS\SymfonyControllerBridge\Tests;
+namespace PhrameCMS\ControllerBridge\Tests;
 
 use PHPUnit\Framework\TestCase;
+use PhrameCMS\ControllerBridge\ControllerBridge;
 use PhrameCMS\Core\CoreContainer;
 use PhrameCMS\Core\Http\HttpMethod;
 use PhrameCMS\Core\Http\Request;
 use PhrameCMS\Core\Http\Response;
-use PhrameCMS\SymfonyControllerBridge\SymfonyControllerBridge;
 use RuntimeException;
 
-final class SymfonyControllerBridgeTest extends TestCase
+final class ControllerBridgeTest extends TestCase
 {
     protected function setUp(): void
     {
-        if (!SymfonyControllerBridge::isAvailable()) {
+        if (!ControllerBridge::isAvailable()) {
             self::markTestSkipped('Symfony HttpKernel controller resolver is unavailable in this environment.');
         }
     }
@@ -24,7 +24,7 @@ final class SymfonyControllerBridgeTest extends TestCase
     public function testInvokableControllerReferenceResolves(): void
     {
         $container = new CoreContainer();
-        $resolver = new SymfonyControllerBridge();
+        $resolver = new ControllerBridge();
 
         $handler = $resolver->resolve(InvokableControllerForBridgeTest::class, $container);
         $response = $handler(new Request(HttpMethod::GET, '/hello', [], [], null), $container);
@@ -38,7 +38,7 @@ final class SymfonyControllerBridgeTest extends TestCase
         $container = new CoreContainer();
         $container->set(MethodControllerForBridgeTest::class, static fn (): MethodControllerForBridgeTest => new MethodControllerForBridgeTest());
 
-        $resolver = new SymfonyControllerBridge();
+        $resolver = new ControllerBridge();
         $handler = $resolver->resolve(MethodControllerForBridgeTest::class . '::show', $container);
 
         $response = $handler(new Request(HttpMethod::GET, '/show', [], [], null), $container);
@@ -50,7 +50,7 @@ final class SymfonyControllerBridgeTest extends TestCase
     public function testWrongControllerReturnTypeThrows(): void
     {
         $container = new CoreContainer();
-        $resolver = new SymfonyControllerBridge();
+        $resolver = new ControllerBridge();
         $handler = $resolver->resolve(InvalidReturnControllerForBridgeTest::class, $container);
 
         $this->expectException(RuntimeException::class);
