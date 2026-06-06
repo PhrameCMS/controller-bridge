@@ -1,0 +1,57 @@
+{
+  "name": "phramecms/controller-bridge",
+  "description": "Controller resolver bridge for PhrameCMS Core",
+  "version": "dev-main",
+  "type": "library",
+  "license": "GPL-3.0-only",
+  "require": {
+    "php": "^8.2",
+    "phramecms/core": "dev-main",
+    "symfony/http-foundation": "^7.0",
+    "symfony/http-kernel": "^7.0"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../Core",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/routing-bridge"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/dependency-injection-bridge"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/dotenv-bridge"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PhrameCMS/http-foundation-bridge"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PhrameCMS\\SymfonyControllerBridge\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhrameCMS\\SymfonyControllerBridge\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.5",
+    "phpstan/phpstan": "^2.2"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
